@@ -1,0 +1,62 @@
+                                   HOMTOOLS
+                                   ********
+
+ ******************************************************************************
+ INSTALLATION GUIDE
+ ******************************************************************************
+
+ 0 - COPYRIGHT NOTICE
+ ********************
+
+ HOMTOOLS is a free software componant released under the terms of the CeCILL-C
+ license.
+ This license is compatibility with the GNU General Public License (GPL).
+ See the included license: "license.txt" in English
+                           "license_FR" in French
+
+ ******************************************************************************
+
+ I - TO INSTALL HOMTOOLS
+ ***********************
+
+
+  1- Unpack the archive (zip file) in a directory 
+  2- Modify or create the abaqus_v6.env file in your home directory with the 
+     following line:
+       plugin_central_dir = "/path/to/homtools/dir"
+
+ ******************************************************************************
+
+ II - KNOW ISSUES
+ ***********************
+
+ - array object is normaly used from numpy. If an error message is encountered 
+   due to numpy, replace 
+
+         from numpy import ...
+   by
+
+         from Numeric import ...
+
+   in homogeneTraction.py, periodicBoundaryStruct.py, macroSphere.py
+
+  - lang issue in abaqus V6.13: depending on our locales settings abaqus cae
+    can return an error message while charging python plugins like:
+     " unicode() argument 2 must be string, not none" 
+    for linux-users this bug can be avoid by launching abaqus with the 
+    following command:
+
+       env LC_ALL="en_US.UTF8" abaqus cae 
+
+    previously your system need to be configurated with en_US.UTF8, on 
+    debian-like system this can be done with the following command (as root): 
+
+       dpkg-reconfigure locales  
+    
+ III - WANT TO CONTRIBUTE OR REPORT AN ISSUE
+ *******************************************
+  
+ If you want to contribute or to report an issue, please contact us:
+   homtools@omicron.cnrs-mrs.fr
+
+
